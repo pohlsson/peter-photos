@@ -1,10 +1,12 @@
 const initialValues = {
   albums: [],
-  selectedAlbum: undefined,
+  selectedAlbumId: undefined,
 };
 
 export const getSelectedAlbum = state => {
-  return state.albumsReducer.albums[0]
+  return state.albumsReducer.albums.filter(album => (
+      album.id === state.albumsReducer.selectedAlbumId)
+  )[0];
 };
 
 export const albumsReducer = (state = initialValues, action) => {
@@ -13,6 +15,7 @@ export const albumsReducer = (state = initialValues, action) => {
       return {
         ...state,
         albums: action.payload.albums,
+        selectedAlbumId: action.payload.albums[0].id,
       };
     default:
       return state;

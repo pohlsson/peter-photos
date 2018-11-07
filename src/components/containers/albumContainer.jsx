@@ -3,13 +3,15 @@ import {connect} from 'react-redux';
 import {actions as apiActions} from 'actions/apiActions';
 import {getSelectedAlbum} from 'reducers/albumsReducer';
 
-export const Album = (album) => {
-  const {photos} = album.fields;
+export const AlbumContainer = props => {
+  const {album} = props;
+  console.log(album)
+  const {photos} = album;
   return (
     <section>
       {photos.map(photo => (
-        <section key={photo.sys.id}>
-          <img src={photo.fields.file.url} />
+        <section key={photo.id}>
+          <img src={photo.file.url} />
         </section>
       ))}
     </section>
@@ -17,7 +19,7 @@ export const Album = (album) => {
 };
 
 const mapStateToProps = state => ({
-  album: getSelectedAlbum(state),
+    album: getSelectedAlbum(state),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -27,7 +29,7 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Album);
+)(AlbumContainer);
 
 
 

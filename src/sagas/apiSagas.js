@@ -9,13 +9,23 @@ const client = contentful.createClient({
   accessToken: '1a18ff64bd070b9667080858069c2f585a7405705072daa033cf48988c032c72',
 });
 
+const formatPhoto = photo => photo.fields;
+
+const formatAlbum = album => ({
+    ...album.fields,
+    photos: album.fields.photos.map(photo => formatPhoto(photo))
+});
+
+const formatAlbums = albums => albums.map(album => formatAlbum(album));
+
 export function* getAlbums() {
   try {
     const {items} = yield call(client.getEntries, {content_type: 'album'});
+    console.log(items)
     yield put({
       type: apiActionTypes.GET_ALBUMS + actionStates.DONE,
       payload: {
-        albums: items,
+        albums: formatAlbums(items),
       },
     })
   } catch (e) {

@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 import {Provider} from 'react-redux';
 import reducers from 'reducers/rootReducer';
 import sagas from 'sagas/rootSaga';
-import App from 'components/containers/app';
+import App from 'components/containers/appContainer';
 import * as serviceWorker from 'serviceWorker';
 
 const composeEnhancers =
