@@ -1687,24 +1687,24 @@ Use the following [`launch.json`](https://code.visualstudio.com/docs/editor/debu
 
 ## Developing Components in Isolation
 
-Usually, in an app, you have a lot of UI components, and each of them has many different states.
-For an example, a simple button component could have following states:
+Usually, in an app, you have a lot of UI components, and each of them has many different actionStates.
+For an example, a simple button component could have following actionStates:
 
 - In a regular state, with a text label.
 - In the disabled mode.
 - In a loading state.
 
-Usually, it’s hard to see these states without running a sample app or some examples.
+Usually, it’s hard to see these actionStates without running a sample app or some examples.
 
-Create React App doesn’t include any tools for this by default, but you can easily add [Storybook for React](https://storybook.js.org) ([source](https://github.com/storybooks/storybook)) or [React Styleguidist](https://react-styleguidist.js.org/) ([source](https://github.com/styleguidist/react-styleguidist)) to your project. **These are third-party tools that let you develop components and see all their states in isolation from your app**.
+Create React App doesn’t include any tools for this by default, but you can easily add [Storybook for React](https://storybook.js.org) ([source](https://github.com/storybooks/storybook)) or [React Styleguidist](https://react-styleguidist.js.org/) ([source](https://github.com/styleguidist/react-styleguidist)) to your project. **These are third-party tools that let you develop components and see all their actionStates in isolation from your app**.
 
 ![Storybook for React Demo](http://i.imgur.com/7CIAWpB.gif)
 
-You can also deploy your Storybook or style guide as a static app. This way, everyone in your team can view and review different states of UI components without starting a backend server or creating an account in your app.
+You can also deploy your Storybook or style guide as a static app. This way, everyone in your team can view and review different actionStates of UI components without starting a backend server or creating an account in your app.
 
 ### Getting Started with Storybook
 
-Storybook is a development environment for React UI components. It allows you to browse a component library, view the different states of each component, and interactively develop and test components.
+Storybook is a development environment for React UI components. It allows you to browse a component library, view the different actionStates of each component, and interactively develop and test components.
 
 First, install the following npm package globally:
 
@@ -1787,7 +1787,7 @@ following in their [`src/index.js`](src/index.js) file:
 serviceWorker.unregister();
 ```
 
-As the comment states, switching `serviceWorker.unregister()` to
+As the comment actionStates, switching `serviceWorker.unregister()` to
 `serviceWorker.register()` will opt you in to using the service worker.
 
 ### Why Opt-in?
