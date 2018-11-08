@@ -1,8 +1,12 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
+import styled from 'styled-components';
 import {actions as apiActions} from 'actions/apiActions';
 import {getSelectedAlbum} from 'reducers/albumsReducer';
 import AlbumContainer from 'components/containers/albumContainer';
+
+const StyledApp = styled.section`
+`;
 
 export class AppContainer extends Component {
   componentDidMount() {
@@ -12,16 +16,16 @@ export class AppContainer extends Component {
   render() {
     const {selectedAlbum} = this.props;
     return (
-      <section className="app">
+      <StyledApp>
         <header>Peter Photos</header>
-        {selectedAlbum && <AlbumContainer album={selectedAlbum}/>}
-      </section>
+        {selectedAlbum && <AlbumContainer album={selectedAlbum} />}
+      </StyledApp>
     )
   }
 }
 
 const mapStateToProps = state => ({
-    selectedAlbum: getSelectedAlbum(state),
+  selectedAlbum: getSelectedAlbum(state),
 });
 
 

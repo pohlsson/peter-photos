@@ -1,25 +1,28 @@
 import React from 'react'
 import {connect} from 'react-redux';
+import styled from 'styled-components';
 import {actions as apiActions} from 'actions/apiActions';
 import {getSelectedAlbum} from 'reducers/albumsReducer';
+import {Photo} from 'components/common/photo';
+
+const StyledAlbumContainer = styled.section`
+`;
+
 
 export const AlbumContainer = props => {
   const {album} = props;
-  console.log(album)
   const {photos} = album;
   return (
-    <section>
+    <StyledAlbumContainer>
       {photos.map(photo => (
-        <section key={photo.id}>
-          <img src={photo.file.url} />
-        </section>
+        <Photo key={photo.id} {...photo} />
       ))}
-    </section>
+    </StyledAlbumContainer>
   )
 };
 
 const mapStateToProps = state => ({
-    album: getSelectedAlbum(state),
+  album: getSelectedAlbum(state),
 });
 
 const mapDispatchToProps = dispatch => ({
