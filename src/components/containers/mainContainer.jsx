@@ -5,19 +5,27 @@ import {actions as apiActions} from 'actions/apiActions';
 import {getSelectedAlbum} from 'reducers/albumsReducer';
 import {Photo} from 'components/common/photo';
 
-const StyledAlbumContainer = styled.section`
+const StyledMainContainer = styled.main`
 `;
 
+const StyledAlbum = styled.article`
+  width: 50em;
+  margin: 0 auto;
+  background-color: ${props => props.theme.depth3};
+`;
 
-export const AlbumContainer = props => {
+export const MainContainer = props => {
   const {album} = props;
-  const {photos} = album;
   return (
-    <StyledAlbumContainer>
-      {photos.map(photo => (
-        <Photo key={photo.id} {...photo} />
-      ))}
-    </StyledAlbumContainer>
+    <StyledMainContainer>
+      {album &&
+      <StyledAlbum>
+        {album.photos.map(photo => (
+          <Photo key={photo.id} {...photo} />
+        ))}
+      </StyledAlbum>
+      }
+    </StyledMainContainer>
   )
 };
 
@@ -32,7 +40,7 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(AlbumContainer);
+)(MainContainer);
 
 
 
