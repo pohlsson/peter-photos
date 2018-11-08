@@ -1,6 +1,6 @@
 export const mainTheme = {
-  depth0: '#C5E4F0',
-  depth1: '#B5D2DD',
-  depth2: '#9EBAC4',
-  depth3: '#849CA5',
+  depth0: '#000',
+  depth1: '#3A4C54',
+  depth2: '#5E7B87',
+  depth3: '#779AA9',
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledPhotoWrapper = styled.section`
-  width: 100%;
+  padding: 0.25em;
   &:hover h2 {
     display: block;
   }
@@ -16,7 +16,9 @@ const StyledTitle = styled.h2`
 `;
 
 const StyledPhoto = styled.img`
-  width: 100%;
+  width: 15em;
+  height: 15em;
+  object-fit: cover;
 `;
 
 export const Photo = (props) => {

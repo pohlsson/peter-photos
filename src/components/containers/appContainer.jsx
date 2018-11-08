@@ -12,7 +12,11 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const StyledApp = styled.div`
-  background-color: ${props => props.theme.depth3};
+    background-image: linear-gradient(
+    to bottom right,
+    ${props => props.theme.depth0},
+    ${props => props.theme.depth2}
+   );
 `;
 
 export class AppContainer extends Component {

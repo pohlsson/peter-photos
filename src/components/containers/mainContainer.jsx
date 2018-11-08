@@ -9,9 +9,9 @@ const StyledMainContainer = styled.main`
 `;
 
 const StyledAlbum = styled.article`
-  width: 50em;
-  margin: 0 auto;
-  background-color: ${props => props.theme.depth3};
+  padding: 5em;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 export const MainContainer = props => {
