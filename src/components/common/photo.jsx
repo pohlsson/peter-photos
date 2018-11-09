@@ -16,17 +16,17 @@ const StyledTitle = styled.h2`
 `;
 
 const StyledPhoto = styled.img`
-  width: 15em;
-  height: 15em;
+  width: ${props => props.width};
+  height: ${props => props.width};
   object-fit: cover;
 `;
 
 export const Photo = (props) => {
-  const {title, file} = props;
+  const {title, file, width} = props;
   return (
     <StyledPhotoWrapper>
       <StyledTitle>{title}</StyledTitle>
-      <StyledPhoto src={file.url} />
+      <StyledPhoto src={file.url}  width={width}/>
     </StyledPhotoWrapper>
   )
 };

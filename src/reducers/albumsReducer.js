@@ -1,13 +1,22 @@
 const initialValues = {
   albums: [],
+  albumWidth: undefined,
   selectedAlbumId: undefined,
 };
 
-export const getSelectedAlbum = state => {
-  return state.albumsReducer.albums.filter(album => (
-      album.id === state.albumsReducer.selectedAlbumId)
-  )[0];
-};
+export const getAlbumById = (state, albumId) => (
+    state.albumsReducer.albums.filter(album => (
+        album.id === albumId
+    ))[0]
+);
+
+export const getSelectedAlbum = state => (
+    getAlbumById(state, state.albumsReducer.selectedAlbumId)
+);
+
+export const getPhotoUrlsInAlbumById = (state, albumId) =>  (
+    getAlbumById(state, albumId).photos
+);
 
 export const albumsReducer = (state = initialValues, action) => {
   switch (action.type) {
@@ -17,6 +26,11 @@ export const albumsReducer = (state = initialValues, action) => {
         albums: action.payload.albums,
         selectedAlbumId: action.payload.albums[0].id,
       };
+    case 'SET_ALBUM_WIDTH':
+        return {
+            ...state,
+            albumWidth: action.payload.albumWidth,
+        };
     default:
       return state;
   }

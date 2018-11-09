@@ -4,19 +4,27 @@ import styled, {createGlobalStyle, ThemeProvider} from 'styled-components';
 import reset from 'styled-reset';
 import {mainTheme} from 'styles/themes';
 import {actions as apiActions} from 'actions/apiActions';
-import {getSelectedAlbum} from 'reducers/albumsReducer';
 import MainContainer from 'components/containers/mainContainer';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
+  html, body, #root {
+      height: 100%;
+  }
+  html {
+    background-image: linear-gradient(
+      to bottom right,
+      ${props => props.theme.depth0},
+      ${props => props.theme.depth2}
+     );
+  }
 `;
 
 const StyledApp = styled.div`
-    background-image: linear-gradient(
-    to bottom right,
-    ${props => props.theme.depth0},
-    ${props => props.theme.depth2}
-   );
+    height: 100%;
+    header {
+        display: none;
+    }
 `;
 
 export class AppContainer extends Component {
@@ -25,7 +33,6 @@ export class AppContainer extends Component {
   }
 
   render() {
-    const {selectedAlbum} = this.props;
     return (
       <ThemeProvider theme={mainTheme}>
         <StyledApp>
@@ -38,17 +45,12 @@ export class AppContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  selectedAlbum: getSelectedAlbum(state),
-});
-
-
 const mapDispatchToProps = dispatch => ({
   dispatchGetPhotos: () => dispatch(apiActions.getPhotos()),
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
 )(AppContainer);
 

@@ -3,28 +3,17 @@ import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {actions as apiActions} from 'actions/apiActions';
 import {getSelectedAlbum} from 'reducers/albumsReducer';
-import {Photo} from 'components/common/photo';
+import AlbumContainer from 'components/containers/albumContainer';
 
 const StyledMainContainer = styled.main`
-`;
-
-const StyledAlbum = styled.article`
-  padding: 5em;
-  display: flex;
-  flex-wrap: wrap;
+  height: 100%;
 `;
 
 export const MainContainer = props => {
   const {album} = props;
   return (
     <StyledMainContainer>
-      {album &&
-      <StyledAlbum>
-        {album.photos.map(photo => (
-          <Photo key={photo.id} {...photo} />
-        ))}
-      </StyledAlbum>
-      }
+      {album && <AlbumContainer/>}
     </StyledMainContainer>
   )
 };
