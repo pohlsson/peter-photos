@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
       height: 100%;
   }
   html {
+    overflow: hidden;
     background-image: linear-gradient(
       to bottom right,
       ${props => props.theme.depth0},
@@ -37,7 +38,7 @@ export class AppContainer extends Component {
       <ThemeProvider theme={mainTheme}>
         <StyledApp>
           <GlobalStyle />
-          <header>Peter Photos</header>
+            <header><h1>Peter Photos</h1></header>
           <MainContainer />
         </StyledApp>
       </ThemeProvider>

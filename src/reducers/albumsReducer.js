@@ -26,6 +26,11 @@ export const albumsReducer = (state = initialValues, action) => {
         albums: action.payload.albums,
         selectedAlbumId: action.payload.albums[0].id,
       };
+    case 'SET_SELECTED_ALBUM':
+      return {
+          ...state,
+          selectedAlbumId: action.payload.albumId,
+      };
     case 'SET_ALBUM_WIDTH':
         return {
             ...state,

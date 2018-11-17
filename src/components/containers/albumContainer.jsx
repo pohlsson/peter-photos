@@ -1,20 +1,17 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import styled from 'styled-components';
+import Gallery from 'react-grid-gallery';
 import {actions as apiActions} from 'actions/apiActions';
 import {getSelectedAlbum} from 'reducers/albumsReducer';
-import {Photo} from 'components/common/photo';
 
-
-const StyledAlbumWrapper = styled.div`
-  height: 100%;
-  overflow: auto;
+const StyledAlbumWrapper = styled.section`
+    height: 100%;
+    flex: 4;
+    margin-left: 10em;
 `;
 
 const StyledAlbum = styled.article`
-  padding: 5em;
-  display: flex;
-  flex-wrap: wrap;
 `;
 
 export class AlbumContainer extends Component {
@@ -29,22 +26,23 @@ export class AlbumContainer extends Component {
 
     calcPhotoWidth(numberOfPhotos, albumWidth) {
         console.log(numberOfPhotos, albumWidth)
-
-
        }
 
     render() {
-        const {album, albumWidth} = this.props;
+        const images = this.props.album.photos.map(photo => ({
+                src: photo.file.url,
+                thumbnail: photo.file.url,
+                caption: photo.title,
+                thumbnailWidth: 320,
+                thumbnailHeight: 174,
+            }));
         return (
             <StyledAlbumWrapper>
                 <StyledAlbum ref={this.albumRef}>
-                    {album.photos.map(photo => (
-                        <Photo
-                            key={photo.id}
-                            width={this.calcPhotoWidth(album.photos.length, albumWidth)}
-                            {...photo}
-                        />
-                    ))}
+                    <Gallery
+                        images={images}
+                        enableImageSelection={false}
+                    />
                 </StyledAlbum>
             </StyledAlbumWrapper>
         )
@@ -67,6 +65,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps,
 )(AlbumContainer);
-
-
-
