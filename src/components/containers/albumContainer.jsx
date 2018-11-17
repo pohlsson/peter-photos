@@ -7,6 +7,7 @@ import {getSelectedAlbum} from 'reducers/albumsReducer';
 
 const StyledAlbumWrapper = styled.section`
     height: 100%;
+    padding: 4em;
     flex: 4;
     margin-left: 10em;
 `;
