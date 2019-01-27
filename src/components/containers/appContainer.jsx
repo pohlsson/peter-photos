@@ -5,6 +5,7 @@ import reset from 'styled-reset';
 import {mainTheme} from 'styles/themes';
 import {actions as apiActions} from 'actions/apiActions';
 import MainContainer from 'components/containers/mainContainer';
+import {Banner} from "../common/banner";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -13,11 +14,7 @@ const GlobalStyle = createGlobalStyle`
   }
   html {
     overflow: hidden;
-    background-image: linear-gradient(
-      to bottom right,
-      ${props => props.theme.depth0},
-      ${props => props.theme.depth2}
-     );
+    background: ${props => props.theme.background};
   }
 `;
 
@@ -29,30 +26,30 @@ const StyledApp = styled.div`
 `;
 
 export class AppContainer extends Component {
-  componentDidMount() {
-    this.props.dispatchGetPhotos();
-  }
+    componentDidMount() {
+        this.props.dispatchGetPhotos();
+    }
 
-  render() {
-    return (
-      <ThemeProvider theme={mainTheme}>
-        <StyledApp>
-          <GlobalStyle />
-            <header><h1>Peter Photos</h1></header>
-          <MainContainer />
-        </StyledApp>
-      </ThemeProvider>
-    )
-  }
+    render() {
+        return (
+            <ThemeProvider theme={mainTheme}>
+                <StyledApp>
+                    <GlobalStyle/>
+                    <header><h1>Peter Photos</h1></header>
+                    <MainContainer/>
+                </StyledApp>
+            </ThemeProvider>
+        )
+    }
 }
 
 const mapDispatchToProps = dispatch => ({
-  dispatchGetPhotos: () => dispatch(apiActions.getPhotos()),
+    dispatchGetPhotos: () => dispatch(apiActions.getPhotos()),
 });
 
 export default connect(
-  null,
-  mapDispatchToProps,
+    null,
+    mapDispatchToProps,
 )(AppContainer);
 
 

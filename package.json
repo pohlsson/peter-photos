@@ -31,5 +31,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
+    "sinon": "^7.2.3",
+    "styled-components-test-utils": "^1.0.1"
+  }
 }

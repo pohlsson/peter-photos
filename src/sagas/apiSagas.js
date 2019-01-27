@@ -21,7 +21,6 @@ const formatAlbums = albums => albums.map(album => formatAlbum(album));
 export function* getAlbums() {
   try {
     const {items} = yield call(client.getEntries, {content_type: 'album'});
-    console.log(items)
     yield put({
       type: apiActionTypes.GET_ALBUMS + actionStates.DONE,
       payload: {

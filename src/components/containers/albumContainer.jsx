@@ -1,15 +1,14 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import Gallery from 'react-grid-gallery';
 import {actions as apiActions} from 'actions/apiActions';
 import {getSelectedAlbum} from 'reducers/albumsReducer';
+import {Photo} from "./photoContainer";
 
 const StyledAlbumWrapper = styled.section`
     height: 100%;
-    padding: 4em;
+    padding: 10em;
     flex: 4;
-    margin-left: 10em;
 `;
 
 const StyledAlbum = styled.article`
@@ -30,20 +29,14 @@ export class AlbumContainer extends Component {
        }
 
     render() {
-        const images = this.props.album.photos.map(photo => ({
-                src: photo.file.url,
-                thumbnail: photo.file.url,
-                caption: photo.title,
-                thumbnailWidth: 320,
-                thumbnailHeight: 174,
-            }));
+        const {photos} = this.props.album;
+        console.log(photos)
         return (
             <StyledAlbumWrapper>
                 <StyledAlbum ref={this.albumRef}>
-                    <Gallery
-                        images={images}
-                        enableImageSelection={false}
-                    />
+                    {photos.map(photo => (
+                        <Photo {...photo} />
+                    ))}
                 </StyledAlbum>
             </StyledAlbumWrapper>
         )

@@ -5,10 +5,13 @@ import {actions as apiActions} from 'actions/apiActions';
 import {getSelectedAlbum} from 'reducers/albumsReducer';
 import AlbumContainer from 'components/containers/albumContainer';
 import PhotoOptionsContainer from 'components/containers/photoOptionsContainer';
+import {AlbumInfo} from "./albumInfoContainer";
+import {Banner} from "../common/banner";
 
 const StyledMainContainer = styled.main`
   height: 100%;
   display: flex;
+  flex-direction: column;
   overflow-y: scroll;
   overflow-x: hidden;
 `;
@@ -17,8 +20,11 @@ export const MainContainer = props => {
   const {album} = props;
   return (
     <StyledMainContainer>
+        <Banner size={3}>Albums          About Peter        Categories</Banner>
+        <Banner size={5}>Peter Photos</Banner>
       <PhotoOptionsContainer />
       {album && <AlbumContainer/>}
+      <AlbumInfo/>
     </StyledMainContainer>
   )
 };

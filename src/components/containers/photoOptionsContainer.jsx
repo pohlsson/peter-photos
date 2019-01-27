@@ -8,11 +8,10 @@ const StyledPhotoOptionsWrapper = styled.section`
     height: 100%;
     width: 10em;
     position: absolute;
-    padding-top: 7em;
+    top: 15em;
     h2 {
         display: none;
     }
-    border-right: 1px solid ${props => props.theme.depth1};
 `;
 
 const StyledPhotoOptions = styled.nav`
