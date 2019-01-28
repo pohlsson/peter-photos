@@ -20,8 +20,7 @@ export const MainContainer = props => {
   const {album} = props;
   return (
     <StyledMainContainer>
-        <Banner size={3}>Albums          About Peter        Categories</Banner>
-        <Banner size={5}>Peter Photos</Banner>
+        <Banner>Peter Photos</Banner>
       <PhotoOptionsContainer />
       {album && <AlbumContainer/>}
       <AlbumInfo/>

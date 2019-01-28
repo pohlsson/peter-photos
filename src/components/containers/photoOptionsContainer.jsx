@@ -8,10 +8,12 @@ const StyledPhotoOptionsWrapper = styled.section`
     height: 100%;
     width: 10em;
     position: absolute;
-    top: 15em;
+    top: 20em;
+    margin-bottom: 5em;
     h2 {
         display: none;
     }
+    
 `;
 
 const StyledPhotoOptions = styled.nav`

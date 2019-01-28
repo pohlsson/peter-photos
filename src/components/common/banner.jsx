@@ -5,15 +5,15 @@ const StyledBanner = styled.section`
     background-color: ${props => props.theme.depth2};
     color: ${props => props.theme.background};
     width: 100%;
-    height: ${props => props.size}em;
-    line-height: ${props => props.size};
-    font-size: ${props => props.size -2}em;
+    height: 5em;
+    line-height: 5;
+    font-size: 3em;
     font-weight: 600; 
     text-align: center;
 `;
 
-export const Banner = ({size, children}) => (
-<StyledBanner size={size}>
+export const Banner = ({children}) => (
+<StyledBanner>
     {children}
 </StyledBanner>
 );

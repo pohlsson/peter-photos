@@ -8,6 +8,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-grid-gallery": "^0.5.3",
+    "react-photo-gallery": "^6.3.0",
     "react-photo-grid": "^1.4.4",
     "react-redux": "^5.1.0",
     "react-scripts": "2.0.3",

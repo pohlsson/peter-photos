@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledPhotoWrapper = styled.div`
- 
+  flex: 1;
 `;
 
 const StyledPhoto = styled.img`
-    height: 100%;
-    width: 100%;
+    height: 25%;
+    width: 25%;
 `;
 
 export const Photo = (props) => {
